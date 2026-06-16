@@ -7,3 +7,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gemspec
 
 gem "rake", "~> 13.0"
+
+gem "sqlite3", ">= 2.1"
+gem "bcrypt", "~> 3.1.7"
+gem "csv"
+gem "slim-rails"
+gem "kaminari"
+gem "ransack"

@@ -1,0 +1,8 @@
+en:
+  admin:
+    authentication:
+      login_required: "You must be logged in to continue."
+    notices:
+      created: "%{model} was created."
+      updated: "%{model} was updated."
+      deleted: "%{model} was deleted."

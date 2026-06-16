@@ -1,0 +1,2 @@
+div class='mt-6 flex justify-center'
+  = paginate collection, window: 2, outer_window: 1
