@@ -1,0 +1,8 @@
+nav class='w-64 bg-gray-900 text-white flex flex-col shrink-0'
+  div class='px-6 py-5 border-b border-gray-700'
+    span class='text-xl font-bold tracking-tight' Admin
+  ul class='flex-1 px-3 py-4 space-y-1 overflow-y-auto'
+    / ナビゲーションリンクは rails g admin <ModelName> で自動追加されます
+  div class='px-4 py-3 border-t border-gray-700'
+    p class='text-xs text-gray-400 truncate'
+      = current_admin&.email_address

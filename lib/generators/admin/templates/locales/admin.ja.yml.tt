@@ -1,0 +1,8 @@
+ja:
+  admin:
+    authentication:
+      login_required: ログインが必要です。
+    notices:
+      created: "%{model}を作成しました。"
+      updated: "%{model}を更新しました。"
+      deleted: "%{model}を削除しました。"

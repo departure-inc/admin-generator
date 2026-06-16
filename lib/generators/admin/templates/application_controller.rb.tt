@@ -1,0 +1,22 @@
+class Admin::ApplicationController < ApplicationController
+  layout 'admin'
+  before_action :authenticate_admin!
+
+  helper_method :current_admin, :admin_logged_in?
+
+  private
+
+  def current_admin
+    # TODO: 実装に合わせて設定
+    # Current.administrator
+    # @current_admin ||= Administrator.find_by(id: session[:admin_id]) if session[:admin_id]
+  end
+
+  def admin_logged_in?
+    !!current_admin
+  end
+
+  def authenticate_admin!
+    redirect_to admin_login_path, alert: t('admin.authentication.login_required') unless admin_logged_in?
+  end
+end

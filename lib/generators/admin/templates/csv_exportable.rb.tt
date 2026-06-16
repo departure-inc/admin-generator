@@ -1,0 +1,13 @@
+require 'csv'
+
+module CsvExportable
+  extend ActiveSupport::Concern
+
+  def export_csv(records, filename:)
+    csv_data = CSV.generate(headers: true) do |csv|
+      csv << records.first.class.column_names
+      records.each { |r| csv << r.attributes.values }
+    end
+    send_data csv_data, filename: filename, type: 'text/csv'
+  end
+end

@@ -1,0 +1,14 @@
+div class='mb-6 flex items-center justify-between'
+  h1 class='text-2xl font-bold text-gray-900' <%= human_name %>詳細
+  div class='flex gap-3'
+    = link_to '編集', edit_admin_<%= singular_name %>_path(@<%= singular_name %>), class: 'inline-flex items-center px-4 py-2 bg-yellow-500 text-white text-sm font-medium rounded-md hover:bg-yellow-600 transition-colors'
+    = link_to '削除', admin_<%= singular_name %>_path(@<%= singular_name %>), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }, class: 'inline-flex items-center px-4 py-2 bg-red-600 text-white text-sm font-medium rounded-md hover:bg-red-700 transition-colors'
+    = link_to '一覧へ', admin_<%= plural_name %>_path, class: 'inline-flex items-center px-4 py-2 bg-white text-gray-700 text-sm font-medium rounded-md border border-gray-300 hover:bg-gray-50 transition-colors'
+
+div class='bg-white rounded-lg shadow overflow-hidden'
+  dl class='divide-y divide-gray-200'
+<% model_columns.each do |col| %>
+    div class='px-6 py-4 sm:grid sm:grid-cols-3 sm:gap-4'
+      dt class='text-sm font-medium text-gray-500' <%= col.name %>
+      dd class='mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2' = @<%= singular_name %>.<%= col.name %>
+<% end %>

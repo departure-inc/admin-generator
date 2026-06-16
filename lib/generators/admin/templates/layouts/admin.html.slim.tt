@@ -1,0 +1,27 @@
+doctype html
+html lang='ja'
+  head
+    meta charset='UTF-8'
+    meta name='viewport' content='width=device-width, initial-scale=1.0'
+    title = content_for(:title) || '管理画面'
+    meta name='apple-mobile-web-app-capable' content='yes'
+    meta name='mobile-web-app-capable' content='yes'
+
+    = csrf_meta_tags
+    = csp_meta_tag
+
+    = yield :head
+
+    = stylesheet_link_tag 'application', data: { turbo_track: 'reload' }
+    = stylesheet_link_tag :tailwind, 'data-turbo-track': 'reload'
+    = javascript_importmap_tags
+  body class='bg-gray-100 min-h-screen'
+    .flex.h-screen.overflow-hidden
+      = render 'admin/shared/sidebar'
+      .flex-1.flex.flex-col.overflow-hidden
+        header class='bg-white shadow-sm px-6 py-4 flex items-center justify-between shrink-0'
+          h1 class='text-lg font-semibold text-gray-800' 管理画面
+          = link_to 'ログアウト', session_path, data: { turbo_method: :delete }, class: 'text-sm text-gray-500 hover:text-red-600 transition-colors'
+        main class='flex-1 overflow-y-auto p-6'
+          = render 'admin/shared/flash'
+          = yield
